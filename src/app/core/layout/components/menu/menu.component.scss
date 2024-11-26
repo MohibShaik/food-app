@@ -1,0 +1,44 @@
+// .text-primary {
+//     color: #FEA116 !important;
+// }
+
+.custom-black {
+    color: #0F172B !important;
+    line-height: 1.2;
+}
+
+.card {
+    border-radius: 15px;
+    max-height: 380px;
+}
+
+.card-img-top {
+    background: #f1f2f3;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 215px;
+    border-radius: 0 0 0 45px;
+    margin: -1px;
+    padding: 25px;
+}
+
+.card-body {
+    background-color: #222831 !important;
+    color: #fff !important;
+    overflow: hidden;
+    padding: 25px;
+}
+
+.add-btn {
+    color: #0F172B !important;
+    font-size: 14px;
+    font-weight: 500;
+    width: 106px;
+    height: 35px;
+    border-radius: 8px;
+}

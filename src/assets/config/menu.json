@@ -1,0 +1,108 @@
+[
+    {
+        "id": "1",
+        "name": "Breakfast",
+        "position": "0",
+        "icon": "fa fa-coffee fa-2x text-primary",
+        "items": [
+            {
+                "id": "1",
+                "name": "Idly",
+                "position": 1,
+                "description": "",
+                "quantity": 3,
+                "images": "assets/images/idli.jpg",
+                "sub-items": [],
+                "price": 4.99
+            },
+            {
+                "id": "2",
+                "name": "Ghee Podi Idly",
+                "position": 2,
+                "description": "",
+                "quantity": 3,
+                "images": "assets/images/idli.jpg",
+                "sub-items": [],
+                "price": 5.99
+            },
+            {
+                "id": "3",
+                "name": "Plain Dosa",
+                "position": 3,
+                "description": "",
+                "quantity": 1,
+                "images": "assets/images/idli.jpg",
+                "sub-items": [],
+                "price": 5.99
+            },
+            {
+                "id": "4",
+                "name": "Onion Dosa",
+                "position": 4,
+                "description": "",
+                "quantity": 1,
+                "images": "assets/images/idli.jpg",
+                "sub-items": [],
+                "price": 6.99
+            },
+            {
+                "id": "5",
+                "name": "Masala Dosa",
+                "position": 5,
+                "description": "",
+                "quantity": 1,
+                "images": "assets/images/idli.jpg",
+                "sub-items": [],
+                "price": 7.99
+            },
+            {
+                "id": "6",
+                "name": "Karam Masala Dosa",
+                "position": 6,
+                "description": "",
+                "quantity": 1,
+                "images": "assets/images/idli.jpg",
+                "sub-items": [],
+                "price": 8.99
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Lunch",
+        "position": "2",
+        "icon": "fa fa-hamburger fa-2x text-primary",
+        "items": [
+            {
+                "id": "1",
+                "name": "Idly New",
+                "position": 1,
+                "description": "",
+                "quantity": 3,
+               "images": "assets/images/idli.jpg",
+                "sub-items": [],
+                "price": 4.99
+            },
+            {
+                "id": "2",
+                "name": "Ghee Podi Idly",
+                "position": 2,
+                "description": "",
+                "quantity": 3,
+                "images": "assets/images/idli.jpg",
+                "sub-items": [],
+                "price": 5.99
+            },
+            {
+                "id": "3",
+                "name": "Plain Dosa",
+                "position": 3,
+                "description": "",
+                "quantity": 1,
+                "images": "assets/images/idli.jpg",
+                "sub-items": [],
+                "price": 5.99
+            }
+        ]
+    }
+]

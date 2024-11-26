@@ -1,0 +1,106 @@
+@import "../../styles/colors";
+
+.w-50 {
+    width: 50%;
+}
+
+
+.h-50 {
+    height: 50%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.m-0 {
+    margin: 0px !important;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.grey-text {
+    color: map-get($map: $gray-color-variants, $key: 100);
+}
+
+.standard-text {
+    color: map-get($map: $black-color-variants, $key: 200);
+}
+
+.f-18 {
+    font-size: 18px;
+}
+
+.f-20 {
+    font-size: 20px !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.f-16 {
+    font-size: 16px;
+}
+
+.f-13 {
+    font-size: 13px;
+}
+
+.f-14 {
+    font-size: 14px;
+}
+
+.upper-case {
+    text-transform: uppercase;
+}
+
+.secondary-btn {
+    border: 1px solid map-get($map: $gray-color-variants, $key: 400) !important;
+    color: map-get($map: $black-color-variants, $key: 700) !important;
+    background: map-get($map: $white-color-variants, $key: 300) !important;
+    border-radius: 8px !important;
+}
+
+.primary-btn {
+    border: 1px solid map-get($map: $black-color-variants, $key: 300);
+    color: map-get($map: $white-color-variants, $key: 300);
+    background: map-get($map: $black-color-variants, $key: 300);
+    border-radius: 8px !important;
+}
+
+.grey-btn {
+    border-radius: 10px;
+    background-color: #F2F3F4;
+    color: map-get($map: $black-color-variants, $key: 200);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+
+// .white-btn{
+//     border: 1px solid map-get($map: $gray-color-variants, $key: 400) !important;
+//     color: map-get($map: $black-color-variants, $key: 300) !important;
+//     background: map-get($map: $white-color-variants, $key: 300) !important;
+//     border-radius: 8px !important;
+//     box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
+// }
