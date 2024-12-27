@@ -31,9 +31,16 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/styles/customized-bootstrap.scss"
+              "src/styles/customized-bootstrap.scss",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-spinner/animations/square-jelly-box.css",
+              "node_modules/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -122,9 +129,16 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/styles/customized-bootstrap.scss"
+              "src/styles/customized-bootstrap.scss",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-spinner/animations/square-jelly-box.css",
+              "node_modules/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js"
+            ]
           }
         }
       }

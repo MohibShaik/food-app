@@ -1,0 +1,80 @@
+<div class="d-flex flex-column vh-100">
+  <!-- Toolbar -->
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#mobileMenu"
+        aria-controls="mobileMenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="" class="navbar-brand p-0">
+        <h2 class="text-primary m-0">
+          <i class="fa fa-utensils me-3"></i>Shaara Admin
+        </h2>
+      </a>
+    </div>
+  </nav>
+
+  <div class="d-flex flex-grow-1">
+    <!-- Sidebar -->
+    <div class="d-none d-lg-block bg-dark py-3" style="width: 210px">
+      <ul class="nav flex-column">
+        <ng-container *ngFor="let link of links">
+          <li class="nav-item my-1">
+            <a
+              class="nav-link text-light"
+              [routerLink]="link.route"
+              [routerLinkActive]="['is-active']"
+              [routerLinkActiveOptions]="{ exact: false }"
+              #rla="routerLinkActive"
+              [ngClass]="
+                link.disabled
+                  ? 'disabled-item'
+                  : rla.isActive
+                  ? 'active-link'
+                  : ''
+              "
+              >{{ link?.name }}</a
+            >
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-grow-1 p-3 content-wrapper">
+      <router-outlet></router-outlet>
+      <!-- <h2>Content</h2>
+      <p>This is the main content area.</p> -->
+    </div>
+  </div>
+</div>
+
+<!-- Overlay Menu (Offcanvas) for Mobile -->
+<div
+  class="offcanvas offcanvas-start"
+  tabindex="-1"
+  id="mobileMenu"
+  aria-labelledby="mobileMenuLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body bg-white">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="#">Link 1</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Link 2</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Link 3</a></li>
+    </ul>
+  </div>
+</div>

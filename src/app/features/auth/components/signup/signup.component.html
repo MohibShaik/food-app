@@ -1,0 +1,127 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card bg-light rounded" style="border-radius: 1rem">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block bg-dark">
+              <img
+                src="../../../../../assets/images/logo-hero-2.jpg"
+                alt="login form"
+                class="img-fluid"
+                style="
+                  border-radius: 1rem 0 0 1rem;
+                  height: 100%;
+                  object-fit: none;
+                "
+              />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-4 text-black">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="d-flex align-items-center mb-1 pb-1">
+                    <span class="h2 fw-bold mb-0">Welcome Back</span>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 0.7px">
+                    Create new account
+                  </h5>
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="Username">Username</label>
+                    <input
+                      type="text"
+                      id="Username"
+                      class="form-control"
+                      formControlName="username"
+                      [ngClass]="{
+                        'is-invalid':
+                          registerForm.get('username')?.invalid &&
+                          registerForm.get('username')?.touched
+                      }"
+                    />
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="registerForm.get('username')?.hasError('required')"
+                    >
+                      Username is required.
+                    </div>
+                  </div>
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      class="form-control"
+                      formControlName="email"
+                      [ngClass]="{
+                        'is-invalid':
+                          registerForm.get('email')?.invalid &&
+                          registerForm.get('email')?.touched
+                      }"
+                    />
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="registerForm.get('email')?.hasError('required')"
+                    >
+                      Email is required.
+                    </div>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="registerForm.get('email')?.hasError('email')"
+                    >
+                      Invalid Email Address.
+                    </div>
+                  </div>
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      class="form-control"
+                      formControlName="password"
+                      [ngClass]="{
+                        'is-invalid':
+                          registerForm.get('password')?.invalid &&
+                          registerForm.get('password')?.touched
+                      }"
+                    />
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="registerForm.get('password')?.hasError('required')"
+                    >
+                      Password is required.
+                    </div>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                      class="btn btn-dark btn-lg btn-block col-12"
+                      type="button"
+                      [disabled]="registerForm.invalid"
+                      (click)="onSubmit()"
+                    >
+                      Signup
+                    </button>
+                  </div>
+
+                  <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
+                  <p class="mb-5 pb-lg-2 text-dark">
+                    Already a member?
+                    <a href="/auth/login" class="text-primary">Login here</a>
+                  </p>
+                  <!-- <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a> -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

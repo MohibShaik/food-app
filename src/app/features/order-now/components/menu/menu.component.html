@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h4>Menu</h4>
+
+    <div class="d-none d-sm-block">
+      <span class="fs-14 fw-500">{{ currentDate | date : "EEEE, MMMM d y" }}</span>
+    </div>
+  </div>
+
+
+  <ng-container *ngIf="query.menuCategories$ | async as menuCats">
+    <div class="menu-wrapper py-4">
+      <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+        <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+          <ng-container
+            *ngFor="
+              let category of query.menuCategories$ | async;
+              let i = index
+            "
+          >
+            <li class="nav-item mb-3">
+              <a
+                class="d-flex align-items-center text-start mx-3 ms-0 pb-3 w-100"
+                [class.active]="i === activeTabIndex"
+                (click)="selectTab(i)"
+                data-bs-toggle="pill"
+                href="javascript:void(0)"
+              >
+                <!-- <i [ngClass]="category?.icon"></i> -->
+                <div class="ps-3">
+                  <h6 class="mt-n1 mb-0">{{ category?.name }}</h6>
+                </div>
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+
+        <div class="tab-content">
+          <!-- cards list  -->
+          <div class="row g-4">
+            <div class="row">
+              <div
+                class="col-12 col-md-4 col-lg-3 mb-4"
+                *ngFor="
+                  let item of filterMenu(query.menu$ | async , menuCats);
+                  let i = index
+                "
+              >
+                <div class="card shadow rounded">
+                  <img
+                    [src]="item.images"
+                    class="card-img-top"
+                    [alt]="item.name"
+                  />
+                  <div class="card-body">
+                    <h6 class="card-title text-dark">{{ item.name }}</h6>
+                    <p class="card-text">{{ item.price | currency }}</p>
+
+                    <!-- btn  -->
+                    <ng-container *ngIf="item?.quantity; else addNew">
+                      <div
+                        class="d-flex justify-content-center align-items-center"
+                      >
+                        <div
+                          class="btn-group"
+                          role="group"
+                          aria-label="Increment-Decrement"
+                        >
+                          <button
+                            type="button"
+                            class="btn btn-dark"
+                            (click)="decrement(item)"
+                          >
+                            -
+                          </button>
+                          <span class="btn btn-light" id="number-display">{{
+                            item?.quantity
+                          }}</span>
+                          <button
+                            type="button"
+                            class="btn btn-dark"
+                            (click)="increment(item)"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </ng-container>
+
+                    <ng-template #addNew>
+                      <button
+                        type="button"
+                        class="btn btn-dark"
+                        (click)="addItem(item)"
+                      >
+                        ADD
+                      </button>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- action btn  -->
+  <ng-container *ngIf="cartItems?.length">
+    <div class="action-wrapper text-center">
+      <div
+        class="btn-group col-sm-4 col-lg-4 col-md-6"
+        role="group"
+        aria-label="Basic example"
+      >
+        <button
+          type="button"
+          class="btn btn-primary d-flex justify-content-between align-items-center check-btn"
+          (click)="onCheckout()"
+        >
+          <span>Go to Cart</span>
+          <span>{{
+            calcTotal(query.cartItems$ | async) | currency : "USD"
+          }}</span>
+          <!-- <span><i class="fa fa-arrow-right"></i></span> -->
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<!-- Menu End -->

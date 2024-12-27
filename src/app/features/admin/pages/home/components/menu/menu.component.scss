@@ -1,0 +1,31 @@
+.card-wrapper {
+    position: relative;
+    width: 300px;
+    margin: 20px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 18px;
+    text-align: center;
+    opacity: 1;
+}
+
+.card-img-top {
+    width: 100% !important;
+    height: 180px !important;
+}

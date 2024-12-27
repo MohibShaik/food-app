@@ -1,6 +1,14 @@
-
 @import "./styles/customized-bootstrap.scss";
 @import "./styles/common.scss";
+@import "./styles/variables";
+
 
 @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
 // @import "bootstrap/scss/bootstrap";
+
+@import 'ngx-toastr/toastr';
+
+html,
+body {
+    height: 100vh;
+}

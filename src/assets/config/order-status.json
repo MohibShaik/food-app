@@ -1,0 +1,22 @@
+[
+    {
+        "value": "All",
+        "viewValue": "All"
+    },
+    {
+        "value": "Pending",
+        "viewValue": "Pending"
+    },
+    {
+        "value": "Confirmed",
+        "viewValue": "Confirmed"
+    },
+    {
+        "value": "Cancelled",
+        "viewValue": "Cancelled"
+    },
+    {
+        "value": "Completed",
+        "viewValue": "Completed"
+    }
+]

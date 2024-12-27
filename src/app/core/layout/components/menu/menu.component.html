@@ -8,71 +8,55 @@
       <h1 class="mb-5 custom-black fw-800">Most Popular Items</h1>
     </div>
 
-    <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-      <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
-        <ng-container *ngFor="let category of foodMenu; let i = index">
-          <li class="nav-item">
-            <a
-              class="d-flex align-items-center text-start mx-3 ms-0 pb-3"
-              [class.active]="i === activeTabIndex"
-              (click)="selectTab(i)"
-              data-bs-toggle="pill"
-              href="javascript:void(0)"
-            >
-              <i [ngClass]="category?.icon"></i>
-              <div class="ps-3">
-                <h6 class="mt-n1 mb-0">{{ category?.name }}</h6>
-              </div>
-            </a>
-          </li>
-        </ng-container>
-      </ul>
-
-      <div class="tab-content">
-        <ng-container *ngFor="let category of foodMenu; let i = index">
-          <div
-            [id]="'tab-' + i"
-            class="tab-pane fade show p-0"
-            [class.active]="i === activeTabIndex"
+    <!-- add menu div here  -->
+    <div class="menu-wrapper py-4">
+      <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+        <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+          <ng-container
+            *ngFor="
+              let category of query.menuCategories$ | async;
+              let i = index
+            "
           >
-            <div class="row g-4">
-              <ng-container>
-                <div class="row">
-                  <div
-                    class="col-12 col-md-4 col-lg-3 mb-4"
-                    *ngFor="let item of category.items"
-                  >
-                    <div class="card">
-                      <img
-                        [src]="item.images"
-                        class="card-img-top"
-                        [alt]="item.name"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">{{ item.name }}</h5>
-                        <p class="card-text">{{ item.description }}</p>
-                        <!-- <p class="card-text">
-                          {{ item.price | currency }}
-                        </p>
-                        <button class="btn btn-primary">Add</button> -->
+            <li class="nav-item">
+              <a
+                class="d-flex align-items-center text-start mx-3 ms-0 pb-3 w-100"
+                [class.active]="i === activeTabIndex"
+                (click)="selectTab(i)"
+                data-bs-toggle="pill"
+                href="javascript:void(0)"
+              >
+                <!-- <i [ngClass]="category?.icon"></i> -->
+                <div class="ps-3">
+                  <h6 class="mt-n1 mb-0">{{ category?.name }}</h6>
+                </div>
+              </a>
+            </li>
+          </ng-container>
+        </ul>
 
-                        <div class="options">
-                          <p class="card-text">
-                            {{ item.price | currency }}
-                          </p>
-
-                          <button type="button" class="btn btn-primary add-btn">
-                            ADD
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+        <div class="tab-content">
+          <div class="row g-4">
+            <div class="row">
+              <div
+                class="col-12 col-md-4 col-lg-3 mb-4"
+                *ngFor="let item of filteredFoodMenu$ | async; let i = index"
+              >
+                <div class="card shadow rounded">
+                  <img
+                    [src]="item.images"
+                    class="card-img-top"
+                    [alt]="item.name"
+                  />
+                  <div class="card-body">
+                    <h6 class="card-title text-dark">{{ item.name }}</h6>
+                    <p class="card-text">{{ item.price | currency }}</p>
                   </div>
                 </div>
-              </ng-container>
+              </div>
             </div>
           </div>
-        </ng-container>
+        </div>
       </div>
     </div>
   </div>

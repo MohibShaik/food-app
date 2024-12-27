@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="column mt-4">
+    <ng-container *ngFor="let item of query?.cartItems$ | async as cartItems">
+      <div class="row">
+        <div class="col-8 row">
+          <div class="col-4">
+            <img [src]="item?.images" [alt]="item.name" class="cart-image" />
+          </div>
+          <div class="col-8">
+            <p class="text-dark fs-6 fw-bold">{{ item?.name }}</p>
+            <p class="text-black fs-6">{{ item?.price | currency }}</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="d-flex justify-content-end align-items-center">
+            <div
+              class="btn-group btn-group-sm mb-3"
+              role="group"
+              aria-label="Increment-Decrement"
+            >
+              <button
+                type="button"
+                class="btn btn-dark"
+                (click)="decrement(item)"
+              >
+                -
+              </button>
+              <span class="btn btn-light" id="number-display">{{
+                item?.quantity
+              }}</span>
+              <button
+                type="button"
+                class="btn btn-dark"
+                (click)="increment(item)"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="total-cost d-flex justify-content-end">
+            <p class="text-dark fs-6 fw-bold">
+              {{ item?.quantity * item?.price | currency : "USD" }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </ng-container>
+
+    <ng-container *ngIf="totalCartPrice">
+      <div class="row mt-4">
+        <div class="col-6 d-flex justify-content-center align-items-center">
+          <p class="text-dark fs-6 fw-bold">Total Price</p>
+        </div>
+
+        <div class="col-6 d-flex justify-content-center align-items-center">
+          <p class="text-dark fs-5 fw-bold">{{ totalCartPrice | currency : "USD" }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

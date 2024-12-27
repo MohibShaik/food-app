@@ -1,0 +1,122 @@
+<div class="d-flex flex-column vh-100">
+  <!-- Toolbar -->
+  <nav class="navbar navbar-expand-lg bg-dark min-height-75">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#mobileMenu"
+        aria-controls="mobileMenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="" class="navbar-brand p-0">
+        <h2 class="text-primary m-0">
+          <i class="fa fa-utensils me-3"></i
+          >{{ isAdmin ? "Shaara Admin" : "Shaara Halal Eats" }}
+        </h2>
+      </a>
+
+      <div class="d-none d-sm-block">
+        <h3 class="text-primary m-0 px-4">
+          <i class="fa fa-user-circle"></i>
+        </h3>
+      </div>
+
+      <!-- Visible only on extra small screens -->
+      <!-- <div class="d-block d-sm-none">
+          <p>This section is visible only on extra small screens.</p>
+        </div> -->
+    </div>
+  </nav>
+
+  <div class="d-flex flex-grow-1">
+    <!-- Sidebar -->
+    <div class="d-none d-lg-block bg-dark py-3" style="width: 210px">
+      <ul class="nav flex-column">
+        <ng-container *ngFor="let link of query.navLinks$ | async">
+          <li class="nav-item my-1">
+            <a
+              class="nav-link text-light"
+              [routerLink]="link.route"
+              [routerLinkActive]="['is-active']"
+              [routerLinkActiveOptions]="{ exact: false }"
+              #rla="routerLinkActive"
+              [ngClass]="
+                link.disabled
+                  ? 'disabled-item'
+                  : rla.isActive
+                  ? 'active-link'
+                  : ''
+              "
+              >{{ link?.name }}</a
+            >
+          </li>
+        </ng-container>
+
+        <li
+          class="nav-item align-bottom d-flex justify-content-center align-items-center"
+        >
+          <!-- <i class="fa fa-power-off bg-white"></i> -->
+          <a class="nav-link text-light" (click)="onLogoutClick()">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-grow-1 p-3 content-wrapper scrollable-content">
+      <router-outlet></router-outlet>
+      <!-- <h2>Content</h2>
+          <p>This is the main content area.</p> -->
+    </div>
+  </div>
+</div>
+
+<!-- Overlay Menu (Offcanvas) for Mobile -->
+<div
+  class="offcanvas offcanvas-start"
+  tabindex="-1"
+  id="mobileMenu"
+  aria-labelledby="mobileMenuLabel"
+>
+  <div class="offcanvas-header bg-dark">
+    <h5 class="offcanvas-title text-white" id="mobileMenuLabel">Menu</h5>
+    <button
+      type="button"
+      class="btn-close text-reset bg-light"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body bg-dark">
+    <ul class="nav flex-column">
+      <ng-container *ngFor="let link of query.navLinks$ | async">
+        <li class="nav-item my-1">
+          <a
+            class="nav-link text-light"
+            [routerLink]="link.route"
+            [routerLinkActive]="['is-active']"
+            [routerLinkActiveOptions]="{ exact: false }"
+            #rla="routerLinkActive"
+            [ngClass]="
+              link.disabled
+                ? 'disabled-item'
+                : rla.isActive
+                ? 'active-link'
+                : ''
+            "
+            >{{ link?.name }}</a
+          >
+        </li>
+      </ng-container>
+
+      <li
+        class="nav-item align-bottom d-flex justify-content-center align-items-center"
+      >
+        <!-- <i class="fa fa-power-off bg-white"></i> -->
+        <a class="nav-link text-light" (click)="onLogoutClick()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>

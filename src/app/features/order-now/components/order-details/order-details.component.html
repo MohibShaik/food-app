@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="p-sm-2 p-md-4">
+    <div class="mb-2">
+      <p class="fw-bold fs-5 text-primary">Order Details</p>
+    </div>
+
+    <form [formGroup]="orderDetailsForm" (ngSubmit)="onSubmit()">
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="deliveryType">Delivery Type</label>
+        <select
+          class="form-select"
+          aria-label="Delivery Type"
+          formControlName="deliveryType"
+          [ngClass]="{
+            'is-invalid':
+              orderDetailsForm.get('deliveryType')?.invalid &&
+              orderDetailsForm.get('deliveryType')?.touched
+          }"
+        >
+          <ng-container *ngFor="let cat of query.deliveryTypes$ | async">
+            <option [value]="cat?.value">{{ cat?.viewValue }}</option>
+          </ng-container>
+        </select>
+        <div
+          class="invalid-feedback"
+          *ngIf="orderDetailsForm.get('deliveryType')?.hasError('required')"
+        >
+          Delivery type is required.
+        </div>
+      </div>
+
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="deliveryTime">Delivery Time</label>
+        <select
+          class="form-select"
+          aria-label="Delivery Time"
+          formControlName="deliveryTime"
+          [ngClass]="{
+            'is-invalid':
+              orderDetailsForm.get('deliveryTime')?.invalid &&
+              orderDetailsForm.get('deliveryTime')?.touched
+          }"
+        >
+          <option value="ASAP">ASAP</option>
+          <option value="later">later</option>
+        </select>
+        <div
+          class="invalid-feedback"
+          *ngIf="orderDetailsForm.get('deliveryTime')?.hasError('required')"
+        >
+          Delivery time is required.
+        </div>
+      </div>
+
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="phoneNumber">Phone number</label>
+        <input
+          type="text"
+          id="text"
+          class="form-control"
+          formControlName="phoneNumber"
+          [ngClass]="{
+            'is-invalid':
+              orderDetailsForm.get('phoneNumber')?.invalid &&
+              orderDetailsForm.get('phoneNumber')?.touched
+          }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="orderDetailsForm.get('phoneNumber')?.hasError('required')"
+        >
+          Phone number is required.
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            orderDetailsForm.get('phoneNumber')?.hasError('invalidPhoneNumber')
+          "
+        >
+          Invalid Phone number.
+        </div>
+      </div>
+
+      <div class="pt-1 mb-4">
+        <button
+          data-mdb-button-init
+          data-mdb-ripple-init
+          class="btn btn-secondary col-5 me-4 fs-14"
+          type="button"
+          (click)="onSubmit()"
+          [disabled]="orderDetailsForm.invalid"
+        >
+          Cancel
+        </button>
+
+        <button
+          data-mdb-button-init
+          data-mdb-ripple-init
+          class="btn btn-primary btn-block col-5 fs-14"
+          type="button"
+          (click)="onSubmit()"
+          [disabled]="orderDetailsForm.invalid"
+        >
+          Place Order
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- {{this.orderDetailsForm.value | json}} -->
+</div>

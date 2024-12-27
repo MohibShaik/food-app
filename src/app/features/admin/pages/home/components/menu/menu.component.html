@@ -1,0 +1,93 @@
+<div class="container-fluid">
+  <div class="page-header d-flex justify-content-between">
+    <h4>Menu</h4>
+
+    <button
+      type="button"
+      class="btn btn-primary custom-primary-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      <i class="fa fa-plus"></i>
+      Add Menu Item
+    </button>
+  </div>
+
+  <app-menu-dialog
+    [selectedMenuItem]="selectedMenuItem"
+    [action]="action"
+  ></app-menu-dialog>
+
+  <app-confirmation-dialog
+    [action]="action"
+    [title]="title"
+    [message]="message"
+    (confirmationValue)="onDeleteConfirmation($event)"
+  ></app-confirmation-dialog>
+
+  <div class="menu-wrapper py-4">
+    <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+      <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+        <ng-container
+          *ngFor="let category of query.menuCategories$ | async; let i = index"
+        >
+          <li class="nav-item">
+            <a
+              class="d-flex align-items-center text-start mx-3 ms-0 pb-3 w-100"
+              [class.active]="i === activeTabIndex"
+              (click)="selectTab(i)"
+              data-bs-toggle="pill"
+              href="javascript:void(0)"
+            >
+              <!-- <i [ngClass]="category?.icon"></i> -->
+              <div class="ps-3">
+                <h6 class="mt-n1 mb-0">{{ category?.name }}</h6>
+              </div>
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+
+      <div class="tab-content">
+        <div class="row g-4">
+          <div class="row">
+            <div
+              class="col-12 col-md-4 col-lg-3 mb-4"
+              *ngFor="let item of filteredFoodMenu$ | async; let i = index"
+            >
+              <div
+                class="card shadow rounded"
+                (mouseenter)="toggleCardHover(item, true)"
+                (mouseleave)="toggleCardHover(item, false)"
+              >
+                <img
+                  [src]="item.images"
+                  class="card-img-top"
+                  [alt]="item.name"
+                />
+                <div class="card-body">
+                  <h6 class="card-title text-dark">{{ item.name }}</h6>
+                  <p class="card-text">{{ item.price | currency }}</p>
+                </div>
+                <div class="hover-overlay" *ngIf="item.showHoverText">
+                  <i
+                    class="fas fa-edit"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    (click)="editMenuItem(item)"
+                  ></i>
+                  <i
+                    class="fa fa-trash"
+                    data-bs-toggle="modal"
+                    data-bs-target="#confirmationModal"
+                    (click)="deleteMenuItem(item)"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

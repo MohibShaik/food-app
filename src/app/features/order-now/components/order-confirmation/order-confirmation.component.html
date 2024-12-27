@@ -1,0 +1,156 @@
+<div class="container">
+  <ng-container *ngIf="query.currentOrder$ | async as orderInfo">
+    <div class="card mx-auto shadow-lg bg-white" style="max-width: 800px">
+      <div class="card-body">
+        <!-- Back to Menu -->
+        <div class="mb-3">
+          <a class="text-decoration-none" (click)="clearCart()"
+            ><i class="bi bi-arrow-left"></i> Back to Menu</a
+          >
+        </div>
+
+        <!-- Header Section -->
+        <div class="text-center mb-4">
+          <div class="display-4 text-danger">
+            <i class="bi bi-bowl-hot"></i>
+          </div>
+          <h2 class="fw-bold text-primary">
+            {{
+              orderInfo.status === OrderStatus.CONFIRMED
+                ? "Your request has been placed successfully!"
+                : orderInfo.status === OrderStatus.PENDING
+                ? "The request is in progress!"
+                : orderInfo.status === OrderStatus.CANCELLED
+                ? "The request has been cancelled"
+                : orderInfo.status === OrderStatus.COMPLETED
+                ? "The request has been delivered successfully!"
+                : ""
+            }}
+          </h2>
+
+          <ng-container *ngIf="orderInfo.status === OrderStatus.PENDING">
+            <p class="text-dark">
+              You can cancel this request within 5 mins of ordering
+            </p>
+
+            <button
+              class="btn btn-danger text-capitalize"
+              (click)="cancelOrder(orderInfo)"
+            >
+              Cancel Request
+            </button>
+          </ng-container>
+          <ng-container *ngIf="orderInfo.status === OrderStatus.PENDING">
+            <div class="mt-2 text-dark">
+              <ng-container *ngIf="!timerStatus">
+                <app-timer
+                  [cancellationTime]="orderInfo?.cancellationTime"
+                  (disableCancelBtn)="checkTimerStatus($event)"
+                ></app-timer>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+
+        <!-- Item Details -->
+        <div class="card mb-3 bg-white">
+          <ng-container *ngIf="orderInfo?.requestedItems as requestedItems">
+            <div class="card-body">
+              <h5 class="card-title fw-bold text-primary">
+                Item Total ({{ requestedItems?.length }})
+              </h5>
+
+              <ng-container *ngFor="let item of requestedItems">
+                <div class="d-flex justify-content-between mt-3">
+                  <span class="text-dark"
+                    >{{ item?.quantity }} x {{ item?.name }}</span
+                  >
+                  <span class="fw-bold text-dark">{{
+                    item.quantity * item.price | currency : "USD"
+                  }}</span>
+                </div>
+                <small class="text-dark">
+                  {{ item.price | currency : "USD" }} each
+                </small>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+
+        <!-- Request Info -->
+        <div class="row g-3">
+          <div class="col-md-12">
+            <div class="card bg-white">
+              <div class="card-body">
+                <h5 class="card-title text-primary fw-bold">Request Details</h5>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p class="mb-2">
+                      Requester Name:
+                      <strong class="text-capitalize">{{
+                        orderInfo?.requester?.username
+                      }}</strong>
+                    </p>
+                    <p class="mb-2">
+                      Phone Number:
+                      <strong>{{ orderInfo?.phoneNumber }}</strong>
+                    </p>
+                    <p class="mb-2">
+                      Payment Status:
+                      <strong
+                        [ngClass]="
+                          orderInfo?.paymentStatus
+                            ? 'text-success'
+                            : 'text-danger'
+                        "
+                        >{{
+                          orderInfo?.paymentStatus ? "Paid" : "Not Paid"
+                        }}</strong
+                      >
+                    </p>
+                    <p class="mb-2">
+                      Order Status:
+                      <strong
+                        [ngClass]="
+                          orderInfo?.status === OrderStatus.COMPLETED ||
+                          orderInfo?.status === OrderStatus.CONFIRMED
+                            ? 'text-success'
+                            : orderInfo?.status === OrderStatus.PENDING
+                            ? 'text-warn'
+                            : 'text-danger'
+                        "
+                        >{{ orderInfo?.status }}</strong
+                      >
+                    </p>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p class="mb-2">
+                      Request ID: <strong>{{ orderInfo?._id }}</strong>
+                    </p>
+                    <p class="mb-2">
+                      Date:
+                      <strong>{{
+                        orderInfo?.createdAt | date : "d MMMM, y"
+                      }}</strong>
+                    </p>
+                    <p class="mb-2">
+                      Delivery Type:
+                      <strong>{{ orderInfo?.deliveryType }}</strong>
+                    </p>
+                    <p class="mb-1">
+                      Order Total:
+                      <strong>
+                        {{ orderInfo?.orderTotal | currency : "USD" }}
+                      </strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

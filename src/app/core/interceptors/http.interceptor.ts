@@ -19,7 +19,7 @@ export class ErrorHttpInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // this.spinner.show();
+    this.spinner.show();
     return next
       .handle(
         request.clone({
@@ -28,11 +28,11 @@ export class ErrorHttpInterceptor implements HttpInterceptor {
       )
       .pipe(
         retry(0),
-        // finalize(() => {
-        //   setTimeout(() => {
-        //     this.spinner.hide();
-        //   }, 2000);
-        // }),
+        finalize(() => {
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 2000);
+        }),
         catchError((error: HttpErrorResponse) => {
           if (
             error.status === 400 &&

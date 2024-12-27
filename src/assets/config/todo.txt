@@ -1,0 +1,2 @@
+// encrypt email and password in login and signup API calls
+// add authentication for every API calls

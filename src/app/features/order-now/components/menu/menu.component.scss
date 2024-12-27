@@ -1,0 +1,38 @@
+.custom-black {
+    color: #0F172B !important;
+    line-height: 1.2;
+}
+
+.card {
+    border-radius: 15px;
+    max-height: 380px;
+}
+
+.card-img-top {
+    background: #f1f2f3;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 215px;
+    border-radius: 0 0 0 45px;
+    margin: -1px;
+    padding: 25px;
+}
+
+.card-body {
+    overflow: hidden;
+    padding: 25px;
+}
+
+.add-btn {
+    width: 106px;
+    height: 35px;
+}
+
+.check-btn {
+    min-height: 40px;
+}

@@ -8,6 +8,16 @@ import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
+import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,10 +28,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxSpinnerModule,
+    NgbModule,
+    FontAwesomeModule,
+    SocketIoModule.forRoot(config)
   ],
-  providers: [
-    { provide: 'API_URI', useValue: [environment.apiUrl] },
-  ],
+  providers: [{ provide: 'API_URI', useValue: [environment.apiUrl] }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

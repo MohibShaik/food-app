@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/register-icon.service';
+import { ToastrService } from 'ngx-toastr';
+import { AdminQuery } from 'src/app/features/admin/state/admin.query';
+import { MenuService } from 'src/app/features/admin/state/menu.service';
+import { BehaviorSubject } from 'rxjs';
+import { IMenuCategory } from 'src/app/features/admin/models/menuCategory';
+import { IMenuItem } from 'src/app/features/admin/models/menuItem';
+import { AdminStore } from 'src/app/features/admin/state/admin.store';
 
 @Component({
   selector: 'app-menu',
@@ -8,21 +15,58 @@ import { DataService } from '../../services/register-icon.service';
 })
 export class MenuComponent implements OnInit {
   public activeTabIndex = 0; // Default to the first tab
+  foodMenu!: IMenuItem[];
+  private filteredFoodMenuSubject = new BehaviorSubject<IMenuItem[]>([]);
+  filteredFoodMenu$ = this.filteredFoodMenuSubject.asObservable();
+  menuCategories!: IMenuCategory[];
+  showHoverText: boolean = false;
+  selectedMenuItem!: IMenuItem;
+  public cartItems: any[] = [];
 
-  constructor(private service: DataService) {}
-  public foodMenu!: any;
+  constructor(
+    private menuService: MenuService,
+    public query: AdminQuery,
+    private toastr: ToastrService,
+    public store: AdminStore
+  ) {}
 
   ngOnInit(): void {
-    this.getMenuData();
+    this.getMenuCats();
+    this.getMenu();
   }
 
-  private getMenuData() {
-    this.service.getMenu().subscribe((response) => {
-      this.foodMenu = response;
+  private getMenu() {
+    this.menuService.getMenu().subscribe((response) => {
+      this.foodMenu = response?.response;
+      this.filterMenu(this.activeTabIndex);
     });
+  }
+
+  private getMenuCats() {
+    this.menuService.getMenuCategories().subscribe(
+      (response) => {
+        this.menuCategories = response?.response;
+      },
+      (error) => {
+        console.error('Error retreiving the menu categories:', error);
+      }
+    );
+  }
+
+  private filterMenu(activeTabIndex: number) {
+    const activeCategory = this.menuCategories.filter(
+      (item, index) => index === activeTabIndex
+    );
+    if (activeCategory) {
+      const filtered = this.foodMenu.filter(
+        (x) => x?.menuCategoryId?._id === activeCategory[0]?._id
+      );
+      this.filteredFoodMenuSubject.next(filtered); // Emit filtered menu
+    }
   }
 
   public selectTab(index: number): void {
     this.activeTabIndex = index;
+    this.filterMenu(this.activeTabIndex);
   }
 }

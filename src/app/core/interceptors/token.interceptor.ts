@@ -10,16 +10,14 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, finalize } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   clonedRequest!: HttpRequest<any>;
   constructor(
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService
   ) {}
 
   intercept(
@@ -51,15 +49,9 @@ export class AuthInterceptor implements HttpInterceptor {
         }),
       });
     }
-
-    // this.spinner.show();
-
     // Handle the request
     return next.handle(this.clonedRequest).pipe(
       catchError((error: HttpErrorResponse) => {
-        // Handle the error
-        // this.spinner.hide();
-        console.error('Error occurred:', error);
         this.toastr.error(error.error.message);
         return throwError(() => new Error(error.error.message));
       })
