@@ -30,7 +30,7 @@ export class HomeComponent {
       interval: 2000,
     });
 
-    // this.startSlide()
+    this.startSlide()
   }
 
   startSlide() {
