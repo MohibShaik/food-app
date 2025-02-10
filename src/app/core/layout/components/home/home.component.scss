@@ -1,15 +1,87 @@
-.text-primary {
-    font-weight: 800;
-    line-height: 1.2;
-}
+@import "../../../../../styles/variables";
 
-.sticky {
-    position: fixed !important;
-    top: 0;
-    width: 100%;
-    z-index: 1020;
-}
+.container-fluid {
+    height: 100vh;
+    // background-color: #f2002d;
 
-.img-fluid {
-    border-radius: 50%;
+    .carousel,
+    .carousel-item,
+    .carousel-inner {
+        height: 100%;
+    }
+
+    .red {
+        background: #fff7ef url(https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2021/06/red-hero-back-home.jpg?id=5681) !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+
+    .purple {
+        background: #fff7ef url(https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2021/06/yellow-lafka-hero-back.jpg?id=5617) !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+
+    .orange {
+        background: $luminous-vivid-amber-to-luminous-vivid-orange;
+    }
+
+    .light-purple {
+        background: $blush-light-purple;
+    }
+
+    .blush {
+        background: $blush-bordeaux;
+    }
+
+    .slide-content {
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 30px !important;
+        padding-top: 200px !important;
+        padding-right: 10% !important;
+        padding-bottom: 20px !important;
+        padding-left: 10% !important;
+
+        >.text-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+    }
+
+    .btn-wrapper {
+        margin-top: 54px;
+    }
+
+    .btn-size-md {
+        font-size: 14px;
+        padding: 14px 20px;
+    }
+
+    .btn-rounded {
+        border-radius: 2em;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        .wpb_wrapper {
+            h3 {
+                font-size: 27px !important;
+
+            }
+
+            h2 {
+                font-size: 32px !important;
+                margin-bottom: 18px !important;
+            }
+        }
+    }
+
+
 }

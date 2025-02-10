@@ -1,4 +1,5 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Carousel } from 'bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -17,5 +18,34 @@ export class HomeComponent {
         header.classList.remove('sticky');
       }
     }
+  }
+
+  @ViewChild('carouselExampleSlidesOnly')
+  carouselElement!: ElementRef<HTMLElement>;
+
+  carouselRef!: Carousel;
+
+  ngAfterViewInit() {
+    this.carouselRef = new Carousel(this.carouselElement.nativeElement, {
+      interval: 2000,
+    });
+
+    // this.startSlide()
+  }
+
+  startSlide() {
+    this.carouselRef.cycle();
+  }
+
+  stopSlide() {
+    this.carouselRef.pause();
+  }
+
+  nextSlide() {
+    this.carouselRef.next();
+  }
+
+  prevSlide() {
+    this.carouselRef.prev();
   }
 }

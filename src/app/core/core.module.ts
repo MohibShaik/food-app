@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptor } from './interceptors/token.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ErrorHttpInterceptor } from './interceptors/http.interceptor';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [],
@@ -29,6 +30,7 @@ import { ErrorHttpInterceptor } from './interceptors/http.interceptor';
     }),
     NgxSpinnerModule,
     HttpClientModule,
+    FlexLayoutModule
   ],
   exports: [
     HttpClientModule,
@@ -37,6 +39,7 @@ import { ErrorHttpInterceptor } from './interceptors/http.interceptor';
     RouterModule,
     NgxSpinnerModule,
     HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-  --primary: #FEA116;
+  --primary: #ffca3c;
   --light: #F1F8FF;
   --dark: #0F172B;
 }
@@ -30,7 +30,7 @@ a {
 }
 
 .ff-secondary {
-  font-family: 'Pacifico', cursive;
+  font-family: "Rubik", serif;
 }
 
 .fw-medium {
@@ -67,7 +67,7 @@ a {
 
 /*** Button ***/
 .btn {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Rubik", serif;
   font-weight: 500;
   text-transform: uppercase;
   transition: .5s;
@@ -472,7 +472,7 @@ a {
 .footer .btn.btn-link::before {
   position: relative;
   content: "\f105";
-  font-family: "Font Awesome 5 Free";
+  font-family: "Rubik", serif;
   font-weight: 900;
   margin-right: 10px;
 }
@@ -508,4 +508,12 @@ a {
   text-transform: capitalize;
   font-size: 16px !important;
   border-radius: 8px !important;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fw-700 {
+  font-weight: 700;
 }
