@@ -10,6 +10,12 @@ export class LayoutComponent {
     { name: 'Home', route: '/home', disabled: false },
     { name: 'Menu', route: '/menu', disabled: false },
     { name: 'About', route: '/about', disabled: false },
-    { name: 'Contact', route: '/contact', disabled: false }
+    { name: 'Contact', route: '/contact', disabled: false },
   ];
+
+  isCollapsed = true; // For toggling the navbar on smaller screens
+
+  toggleNavbar() {
+    this.isCollapsed = !this.isCollapsed;
+  }
 }

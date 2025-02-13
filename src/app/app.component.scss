@@ -1,3 +1,84 @@
 .container {
     height: 100vh;
 }
+
+.loader-container {
+    position: fixed;
+    /* Stay in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white backdrop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Ensure it's on top */
+}
+
+.food-truck-loader {
+    width: 300px;
+    /* Adjust as needed */
+    height: auto;
+    position: relative;
+    /* For positioning wheels */
+    opacity: 0;
+    transform: scale(0.8);
+    animation: loader-entrance 1.2s ease-in-out forwards;
+}
+
+@keyframes loader-entrance {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.food-truck-loader img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Prevent image from creating extra space */
+}
+
+.wheels {
+    position: absolute;
+    /* Position wheels relative to the truck */
+    bottom: 0px;
+    /* Adjust vertical position */
+    left: 0;
+    width: 100%;
+    /* Cover the width of the truck */
+    height: 50px;
+    /* Adjust height as needed */
+    display: flex;
+    justify-content: space-around;
+    /* Distribute wheels horizontally */
+    align-items: center;
+}
+
+.wheel {
+    width: 40px;
+    /* Adjust wheel size */
+    height: 40px;
+    background-color: transparent;
+    /* Or a wheel color */
+    border-radius: 50%;
+    /* Make it round */
+    animation: rotate-wheels 2s linear infinite;
+    /* Add your wheel image here if needed */
+    /* background-image: url("wheel.png"); */
+    /* background-size: cover; */
+}
+
+@keyframes rotate-wheels {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

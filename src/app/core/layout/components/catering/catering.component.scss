@@ -1,0 +1,84 @@
+.img-box {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.img-box img {
+    width: 100%;
+    max-width: 425px;
+    position: relative;
+    z-index: 2;
+}
+
+.read-btn {
+    display: inline-block;
+    padding: 10px 45px;
+    color: #ffffff;
+    border-radius: 45px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: none;
+    margin-top: 15px;
+}
+
+.pt-15 {
+    padding-top: 15rem;
+    padding-bottom: 10rem;
+}
+
+.custom-bg-image {
+    background-image: url("../../../../../assets/images/about-bg.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sub-quote {
+    opacity: 0.7 !important;
+}
+
+// web view 
+@media only screen and (max-width: 1279px) {
+    .custom-bg-image {
+        padding-bottom: 10rem;
+    }
+}
+
+// mobile view
+@media only screen and (max-width: 768px) {
+    .custom-bg-image {
+        padding-bottom: 0rem !important;
+    }
+}
+
+
+.what-we-offer {
+    padding: 115px 0px;
+    background-color: #fdfaed;
+
+    .col-inner {
+        padding: 35px 15px 0px 15px
+    }
+
+    .custom-card {
+        background: #fff;
+        border-radius: 8px;
+        border: 1px solid #f1f1f1;
+        transition: all 0.4s ease 0s;
+        text-align: center;
+        padding: 30px 30px 15px 31px;
+
+        >.card-icon {
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+
+}

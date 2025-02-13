@@ -6,6 +6,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
+import { CateringComponent } from './components/catering/catering.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'contact',
         component: ContactComponent,
+      },
+      {
+        path: 'catering',
+        component: CateringComponent,
       },
     ],
   },

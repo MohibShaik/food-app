@@ -1,17 +1,17 @@
 <!-- Menu Start -->
-<div class="container-xxl py-5">
+<div class="container-fluid pt-15 custom-bg-image h-100">
   <div class="container">
     <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
       <h5 class="section-title ff-secondary text-center text-primary fw-normal">
-        Food Menu
+        Our Menu
       </h5>
-      <h1 class="mb-5 custom-black fw-800">Most Popular Items</h1>
+      <h1 class="mb-4 text-white fw-800">Most Popular Items</h1>
     </div>
 
     <!-- add menu div here  -->
     <div class="menu-wrapper py-4">
       <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-        <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+        <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 custom-menu-nav">
           <ng-container
             *ngFor="
               let category of query.menuCategories$ | async;
@@ -20,7 +20,7 @@
           >
             <li class="nav-item">
               <a
-                class="d-flex align-items-center text-start mx-3 ms-0 pb-3 w-100"
+                class="d-flex align-items-center text-start mx-3 ms-0 w-100"
                 [class.active]="i === activeTabIndex"
                 (click)="selectTab(i)"
                 data-bs-toggle="pill"
@@ -28,7 +28,7 @@
               >
                 <!-- <i [ngClass]="category?.icon"></i> -->
                 <div class="ps-3">
-                  <h6 class="mt-n1 mb-0">{{ category?.name }}</h6>
+                  <p class="mt-n1 mb-0">{{ category?.name }}</p>
                 </div>
               </a>
             </li>
