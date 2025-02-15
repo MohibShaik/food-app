@@ -11,7 +11,9 @@
     <!-- add menu div here  -->
     <div class="menu-wrapper py-4">
       <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-        <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 custom-menu-nav">
+        <ul
+          class="nav nav-pills d-inline-flex justify-content-center mb-5 custom-menu-nav"
+        >
           <ng-container
             *ngFor="
               let category of query.menuCategories$ | async;
@@ -48,9 +50,23 @@
                     class="card-img-top"
                     [alt]="item.name"
                   />
+
+                  <div class="price_hold">
+                    <span class="woocommerce-Price-amount amount">
+                      <span
+                        [innerHTML]="
+                          formatPrice(item.price)
+                            | safeHtml : 'USD' : 'symbol' : '1.2-2'
+                        "
+                      ></span>
+                    </span>
+                  </div>
+
                   <div class="card-body">
                     <h6 class="card-title text-dark">{{ item.name }}</h6>
-                    <!-- <p class="card-text">{{ item.price | currency }}</p> -->
+                    <p class="card-text description-text">
+                      {{ item.description }}
+                    </p>
                   </div>
                 </div>
               </div>

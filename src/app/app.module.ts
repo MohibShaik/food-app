@@ -18,6 +18,7 @@ import {
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -30,7 +31,7 @@ import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons';
     NgxSpinnerModule,
     NgbModule,
     FontAwesomeModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
   ],
   providers: [{ provide: 'API_URI', useValue: [environment.apiUrl] }],
   bootstrap: [AppComponent],

@@ -30,7 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     }),
     NgxSpinnerModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   exports: [
     HttpClientModule,
@@ -39,7 +39,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RouterModule,
     NgxSpinnerModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

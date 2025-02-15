@@ -2,15 +2,10 @@
 
 <ngx-spinner
   bdColor="rgba(0, 0, 0, 0.8)"
-  template='<div class="loader-container">
-    <div class="food-truck-loader">
-        <img src="../assets/images/truck.jpg" alt="Food Truck" style="width: 200px; height: 200px;">
-        <div class="wheels">
-            <div class="wheel"></div>
-            <div class="wheel"></div>
-        </div>
-    </div>
-  </div>'
+  size="medium"
+  color="#ffca3c"
+  type="square-jelly-box"
+  [fullScreen]="true"
+  ><p style="color: #ffca3c">Loading...</p></ngx-spinner
 >
-</ngx-spinner>
 <!-- template="<img src='../assets/images/loader.gif' style=' max-width:220px; border-radius:20%'/>" -->

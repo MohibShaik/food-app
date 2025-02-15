@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext, Sanitizer } from '@angular/core';
 import { DataService } from '../../services/register-icon.service';
 import { ToastrService } from 'ngx-toastr';
 import { AdminQuery } from 'src/app/features/admin/state/admin.query';
@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 import { IMenuCategory } from 'src/app/features/admin/models/menuCategory';
 import { IMenuItem } from 'src/app/features/admin/models/menuItem';
 import { AdminStore } from 'src/app/features/admin/state/admin.store';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-menu',
@@ -27,7 +28,8 @@ export class MenuComponent implements OnInit {
     private menuService: MenuService,
     public query: AdminQuery,
     private toastr: ToastrService,
-    public store: AdminStore
+    public store: AdminStore,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -68,5 +70,9 @@ export class MenuComponent implements OnInit {
   public selectTab(index: number): void {
     this.activeTabIndex = index;
     this.filterMenu(this.activeTabIndex);
+  }
+
+  formatPrice(price: number): number { // Now just return the number
+    return price;
   }
 }

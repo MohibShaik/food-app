@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 import { LayoutRoutingModule } from './layout-routing.module';
 import { AboutComponent } from './components/about/about.component';
@@ -11,6 +11,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { LayoutComponent } from './components/layout/layout.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CoreModule } from '../core.module';
+import { SafeHtmlPipe } from '../pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,12 @@ import { CoreModule } from '../core.module';
     CateringComponent,
     AboutComponent,
     ContactComponent,
+    SafeHtmlPipe,
   ],
   imports: [CommonModule, LayoutRoutingModule, CoreModule],
+  providers: [
+    CurrencyPipe, // Provide CurrencyPipe
+  ],
   exports: [LayoutComponent, FooterComponent],
 })
 export class LayoutModule {}

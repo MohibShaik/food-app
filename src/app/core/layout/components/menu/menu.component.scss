@@ -1,7 +1,3 @@
-// .text-primary {
-//     color: #FEA116 !important;
-// }
-
 .custom-black {
     color: #0F172B !important;
     line-height: 1.2;
@@ -9,21 +5,17 @@
 
 .card {
     border-radius: 15px;
-    max-height: 380px;
+    height: 380px;
+    background: #fff;
 }
 
 .card-img-top {
-    background: #f1f2f3;
+    background: #fff;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    height: 215px;
-    border-radius: 0 0 0 45px;
-    margin: -1px;
+    height: 225px;
+    border-radius: 8px;
     padding: 25px;
 }
 
@@ -65,7 +57,7 @@
             font-style: normal;
         }
 
-        .active{
+        .active {
             color: #000;
         }
     }
@@ -83,4 +75,29 @@
     .custom-bg-image {
         padding-bottom: 0rem !important;
     }
+}
+
+.description-text {
+    margin: 0;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.price_hold {
+    clear: both;
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    padding: 9px 8px;
+    border-radius: 4px;
+    z-index: 5;
+    color: #ffffff;
+    background-color: #4d2c21;
 }
