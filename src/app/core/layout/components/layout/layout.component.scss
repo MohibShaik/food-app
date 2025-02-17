@@ -67,7 +67,7 @@
     /* Ensures it overlaps content */
     top: 0;
     left: 0;
-    background: transparent !important;
+    background: transparent;
 }
 
 #header.lafka-has-header-top {
@@ -87,42 +87,42 @@
     justify-content: flex-end;
 }
 
-#logo {
-    display: flex;
-    justify-content: center;
+// #logo {
+//     display: flex;
+//     justify-content: center;
 
-    /* Square with Reversed Triangle */
-    .custom-shape {
-        width: 150px;
-        height: 150px;
-        background-color: var(--primary);
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+//     /* Square with Reversed Triangle */
+//     .custom-shape {
+//         width: 150px;
+//         height: 150px;
+//         background-color: var(--primary);
+//         position: relative;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
 
-        img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-    }
+//         img {
+//             max-width: 90%;
+//             max-height: 90%;
+//         }
+//     }
 
-    /* Inverted Triangle */
-    .custom-shape::after {
-        content: "";
-        position: absolute;
-        bottom: -49px;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-left: 75px solid transparent;
-        border-right: 75px solid transparent;
-        // border-top: 50px solid #FFC107;
-        border-top: 50px solid var(--primary);
+//     /* Inverted Triangle */
+//     .custom-shape::after {
+//         content: "";
+//         position: absolute;
+//         bottom: -49px;
+//         left: 0;
+//         width: 0;
+//         height: 0;
+//         border-left: 75px solid transparent;
+//         border-right: 75px solid transparent;
+//         // border-top: 50px solid #FFC107;
+//         border-top: 50px solid var(--primary);
 
-    }
+//     }
 
-}
+// }
 
 .is-active {
     font-weight: 700;
@@ -155,7 +155,7 @@
     background-color: rgba(255, 255, 255, .87);
     box-shadow: 0 0 30px rgba(0, 0, 0, .12);
     position: absolute;
-    top: 108px;
+    top: 94px;
     left: 40px;
     -webkit-transition: all .3s ease 0s;
     transition: all .3s ease 0s;
@@ -287,6 +287,17 @@
     a.mob-menu-toggle {
         display: table;
     }
+
+    .lafka_transparent_header:not(.lafka-transparent-dark) #header:not(.lafka-sticksy) #logo img:first-of-type {
+        display: none;
+        opacity: 0;
+    }
+
+    .lafka_transparent_header:not(.lafka-transparent-dark) #header:not(.lafka-sticksy) #logo img.transparent_logo,
+    .lafka_transparent_header:not(.lafka-transparent-dark) #header:not(.lafka-sticksy) #logo img.persistent_logo {
+        display: inline-block !important;
+        opacity: 1;
+    }
 }
 
 .content-wrapper {
@@ -299,11 +310,12 @@
 a.mob-menu-toggle {
     display: none;
     width: 46px;
-    line-height: 46px;
+    line-height: 42px;
     height: 46px;
     vertical-align: middle;
     font-size: 21px;
     color: #fff !important;
+    background-color: #f2002d;
     border: 1px solid #fff;
     float: right;
     margin: 0 0 0 10px;
@@ -321,7 +333,7 @@ a.mob-menu-toggle {
     background-color: #ffffff;
     float: right;
     position: absolute;
-    top: 108px;
+    top: 94px;
     right: 40px;
     padding: 0;
     -webkit-transition: all .3s ease 0s;
@@ -349,4 +361,303 @@ i {
 
 #menu_mobile {
     display: none;
+}
+
+// CSS from THEME
+
+#header.lafka-sticksy {
+    position: fixed;
+    right: 0;
+}
+
+#header.lafka-sticksy #main-menu {
+    max-height: 0px;
+    height: 0px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+#header.lafka-has-header-top.lafka-sticksy #logo {
+    margin-bottom: -10px;
+}
+
+#header.lafka-sticksy #logo:before,
+#header.lafka-sticksy #logo:after {
+    bottom: -30px;
+    border-width: 15px 50px;
+}
+
+#header.lafka-sticksy #logo img {
+    max-height: 80px;
+}
+
+#header.lafka-sticksy:before {
+    opacity: 1;
+}
+
+#header.lafka-has-header-top.lafka-sticksy {
+    min-height: 160px;
+    background-color: #fff;
+}
+
+.lafka-sticksy .main_menu_holder {
+    padding-top: 88px;
+}
+
+.lafka-sticky-header #header,
+.lafka_transparent_header.lafka-sticky-header #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+#header.lafka-has-header-top.lafka-sticksy #logo {
+    margin-bottom: -10px;
+}
+
+#header.lafka-sticksy #logo:before,
+#header.lafka-sticksy #logo:after {
+    bottom: -30px;
+    border-width: 15px 50px;
+}
+
+#header.lafka-sticksy #logo:before,
+#header.lafka-sticksy #logo:after {
+    bottom: -30px;
+    border-width: 15px 50px;
+}
+
+#header.lafka-sticksy #logo img {
+    max-height: 80px;
+}
+
+#header #logo {
+    display: block;
+    min-height: 90px;
+    width: 200px;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    margin: 0px auto 55px auto;
+    text-align: center;
+    position: relative;
+    z-index: 6;
+    top: 0;
+    padding: 15px 15px 0 15px;
+}
+
+#header #logo:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0px;
+    bottom: -40px;
+    border-width: 20px 50px;
+    border-style: solid;
+    border-color: #333333 #333333 transparent transparent;
+}
+
+#header #logo:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 0px;
+    bottom: -40px;
+    border-width: 20px 50px;
+    border-style: solid;
+    border-color: #333333 transparent transparent #333333;
+}
+
+#header.lafka-has-header-top #logo {
+    top: 7px;
+    margin-bottom: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+}
+
+#header #logo.lafka_text_logo {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    vertical-align: middle;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+#header #logo.lafka_text_logo a {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    vertical-align: middle;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+#header #logo .lafka-logo-title,
+#header #logo .lafka-logo-subtitle {
+    clear: left;
+    display: block;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#header #logo .lafka-logo-title,
+#header #logo .lafka-logo-subtitle {
+    clear: left;
+    display: block;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#header #logo .lafka-logo-subtitle {
+    font-size: 11px;
+}
+
+#header #logo img.transparent_logo {
+    display: none;
+}
+
+#header #logo a {
+    margin: 0 auto;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+#header.lafka-has-header-top #logo a:before,
+#header.lafka-has-header-top #logo a:after {
+    content: ' ';
+    position: absolute;
+    background: none;
+    border: 4px solid;
+    border-color: transparent #333333 #333333 transparent;
+    display: block;
+    width: 8px;
+    height: 8px;
+    left: -8px;
+    top: -0;
+    z-index: 30000;
+}
+
+#header.lafka-has-header-top #logo a:after {
+    left: auto;
+    right: -8px;
+    border-color: transparent transparent #333333 #333333;
+}
+
+#header.lafka-has-header-top #logo a:before,
+#header.lafka-has-header-top #logo a:after {
+    -webkit-filter: brightness(66%);
+    filter: brightness(66%);
+}
+
+#header #logo img {
+    width: auto;
+    max-width: 100%;
+    max-height: 110px;
+    height: auto;
+    position: relative;
+    top: 0px;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+#header #logo img.lafka_mobile_logo {
+    display: none;
+}
+
+#header #logo img,
+#header2 #logo img {
+    vertical-align: text-bottom;
+}
+
+body.lafka_logo_center_menu_below #header #logo {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+#header:not(.lafka-has-header-top).lafka-sticksy #logo {
+    margin-bottom: 0px;
+}
+
+#header.lafka-has-header-top #logo {
+    width: 160px;
+    margin-left: -80px;
+}
+
+#header #logo:after,
+#header #logo:before {
+    border-width: 20px 40px;
+}
+
+#header.lafka-sticksy #logo:before,
+#header.lafka-sticksy #logo:after {
+    bottom: -30px;
+    border-width: 15px 40px;
+}
+
+#header #logo.lafka_text_logo {
+    min-width: 120px !important;
+}
+
+#header #logo,
+.double-bounce1,
+#products-wrapper div.product-category.product:hover h2 {
+    background-color: #ffca3c;
+}
+
+#header #logo:after {
+    border-color: #ffca3c #ffca3c transparent transparent;
+}
+
+#header #logo:before {
+    border-color: #ffca3c transparent transparent #ffca3c;
+}
+
+#header.lafka-has-header-top #logo a:after,
+.woocommerce-tabs ul.tabs li.active:after,
+.woocommerce-tabs ul.tabs li:hover:after {
+    border-color: transparent transparent #ffca3c #ffca3c !important;
+}
+
+#header.lafka-has-header-top #logo a:after {
+    left: auto !important;
+    right: -8px;
+    border-color: transparent transparent #333 #333;
+}
+
+#header.lafka-has-header-top #logo a:before,
+#header.lafka-has-header-top #logo a:after {
+    content: ' ';
+    position: absolute;
+    background: 0 0;
+    border: 4px solid;
+    border-color: transparent #333 #333 transparent;
+    display: block;
+    width: 8px;
+    height: 8px;
+    left: -8px;
+    top: 0;
+    z-index: 30000;
+}
+
+#header.lafka-has-header-top #logo a:before,
+.woocommerce-tabs ul.tabs li.active:before,
+.woocommerce-tabs ul.tabs li:hover:before {
+    border-color: transparent #ffca3c #ffca3c transparent;
 }

@@ -19,5 +19,9 @@ $link-decoration: none;
 $enable-negative-margins: true;
 $border-radius: 8px;
 
+:root {
+    --bs-primary: #ffca3c;
+    /* Overrides Bootstrap primary */
+}
 
 @import "node_modules/bootstrap/scss/bootstrap";

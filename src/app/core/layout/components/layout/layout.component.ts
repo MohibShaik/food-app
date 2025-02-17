@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-layout',
@@ -6,6 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent {
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const header = document.getElementById('header');
+    if (header) {
+      if (window.scrollY > 50) {
+        // Adjust scroll position threshold as needed
+        header.classList.add('lafka-sticksy');
+      } else {
+        header.classList.remove('lafka-sticksy');
+      }
+    }
+  }
+
   links = [
     { name: 'Home', route: '/home', disabled: false },
     { name: 'Menu', route: '/menu', disabled: false },
