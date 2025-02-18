@@ -67,12 +67,14 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  public selectTab(index: number): void {
+  public selectTab(index: number) {
     this.activeTabIndex = index;
     this.filterMenu(this.activeTabIndex);
+    return true;
   }
 
-  formatPrice(price: number): number { // Now just return the number
+  formatPrice(price: number): number {
+    // Now just return the number
     return price;
   }
 }

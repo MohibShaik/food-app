@@ -1,103 +1,936 @@
-.custom-black {
-    color: #0F172B !important;
-    line-height: 1.2;
-}
-
-.card {
-    border-radius: 15px;
-    height: 380px;
-    background: #fff;
-}
-
-.card-img-top {
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 225px;
-    border-radius: 8px;
-    padding: 25px;
-}
-
-.card-body {
-    overflow: hidden;
-    padding: 25px;
-}
-
-.add-btn {
-    width: 106px;
-    height: 35px;
-}
-
-.pt-15 {
-    padding-top: 15rem;
-}
-
-.custom-bg-image {
-    background-image: url("../../../../../assets/images/menu-bg.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.custom-menu-nav {
-    background-color: var(--primary);
-    margin: 0 auto;
+#content {
+    min-height: 500px;
     padding: 0;
-    border-radius: 8px;
-    height: 60px;
+    position: relative;
+    z-index: 100;
     width: 100%;
+}
+
+.lafka_transparent_header .lafka_title_holder.title_has_image {
+    min-height: 50vh;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
-
-    >li {
-        >a {
-            color: #61443e;
-            font-size: 15px;
-            font-weight: 600;
-            font-style: normal;
-        }
-
-        .active {
-            color: #000;
-        }
-    }
 }
 
-// web view 
-@media only screen and (max-width: 1279px) {
-    .custom-bg-image {
-        padding-bottom: 10rem;
-    }
-}
-
-// mobile view
-@media only screen and (max-width: 768px) {
-    .custom-bg-image {
-        padding-bottom: 0rem !important;
-    }
-}
-
-.description-text {
-    margin: 0;
-    font-size: 14px;
-    color: #888;
-    text-align: center;
+.lafka_title_holder.title_has_image {
+    border-bottom: none;
+    position: relative;
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
 }
 
-.price_hold {
-    clear: both;
-    font-size: 16px;
-    font-weight: 700;
+.lafka_title_holder,
+body.lafka_header_left .lafka_title_holder:not(.title_has_image) .inner {
+    border-color: #f0f0f0;
+}
+
+.lafka_title_holder,
+.lafka_title_holder .inner:before,
+body.lafka_header_left .lafka_title_holder:not(.title_has_image) .inner {
+    background-color: #f7f7f7;
+}
+
+.lafka-zoomable-background {
     position: absolute;
-    top: 18px;
-    left: 18px;
-    padding: 9px 8px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-position: 50% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.lafka-zoomable-background:before {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: -50%;
+    background: rgba(0, 0, 0, 2%);
+    z-index: 1;
+}
+
+.lafka_title_holder.title_has_image .inner h1.heading-title {
+    font-size: 64px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-title {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.inner,
+.dokan-dashboard #container>.dokan-dashboard-wrap {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+    text-align: left;
+    padding: 0 40px;
+    position: relative;
+}
+
+.fixed {
+    display: block;
+}
+
+.lafka_title_holder .inner {
+    vertical-align: middle;
+    -webkit-transition: .8sease-in-out;
+    transition: .8sease-in-out;
+}
+
+.lafka_title_holder.centered_title .inner h6,
+.lafka_title_holder.title_has_image .inner h6 {
+    margin-top: 15px !important;
+}
+
+.lafka_title_holder.title_has_image h6 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    width: 50%;
+    max-width: 900px;
+    line-height: 1.625em;
+}
+
+#content {
+    .inner-temp {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1440px;
+        text-align: left;
+        padding: 0 40px;
+        position: relative;
+        background-color: #fff;
+    }
+
+    #main {
+        padding-top: 0;
+        position: relative;
+    }
+}
+
+.box-common {
+    margin-bottom: 0 !important;
+}
+
+.box {
+    margin-bottom: 30px;
+    clear: both;
+}
+
+.content_holder {
+    width: 100%;
+    float: left;
+    position: relative;
+    margin-bottom: 0 !important;
+}
+
+.clear {
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+}
+
+#comments {
+    background-color: #fafafa;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    float: left;
+    clear: both;
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 80px;
+    padding-left: 6%;
+    padding-right: 6%;
+    text-align: center;
+    border-bottom: 1px solid #f1f1f1;
+    border-top: 1px solid #f1f1f1;
+    margin-top: 45px;
+    margin-left: -15px;
+}
+
+.wpb-content-wrapper {
+    margin: 0;
+    padding: 0;
+    border: none;
+    overflow: unset;
+    display: block;
+}
+
+.vc_row.vc_column-gap-30 {
+    margin-left: -30px;
+    margin-right: -30px;
+}
+
+.vc_row.vc_row-o-columns-middle {
+    align-content: center;
+}
+
+.vc_row.vc_row-flex {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vc_row[data-vc-full-width] {
+    transition: opacity .5sease;
+    overflow: hidden;
+}
+
+.vc_custom_1623493985912 {
+    margin-bottom: 0px !important;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    background-color: #f8f8f8 !important;
+}
+
+.vc_row {
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+.vc_row.vc_row-o-content-middle:not(.vc_row-o-equal-height)>.vc_column_container {
+    align-items: center;
+}
+
+.vc_row.vc_column-gap-30>.vc_column_container {
+    padding: 15px;
+}
+
+.vc_row.vc_row-flex>.vc_column_container {
+    display: flex;
+}
+
+
+
+.vc_row.vc_row-o-content-middle>.vc_column_container>.vc_column-inner {
+    justify-content: center;
+}
+
+.vc_row.vc_row-flex>.vc_column_container>.vc_column-inner {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.vc_column_container>.vc_column-inner {
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+.vc_column-inner::after,
+.vc_column-inner::before {
+    content: " ";
+    display: table;
+}
+
+.vc_clearfix:after,
+.vc_column-inner::after,
+.vc_el-clearfix,
+.vc_row:after {
+    clear: both;
+}
+
+.wpb_wrapper {
+    position: relative;
+}
+
+.vc_custom_heading,
+.wpb_text_column.wpb_content_element {
+    width: 100%;
+    position: relative;
+}
+
+.wpb_button,
+.wpb_content_element,
+ul.wpb_thumbnails-fluid>li {
+    margin-bottom: 35px;
+}
+
+#content .wpb_alert p:last-child,
+#content .wpb_text_column :last-child,
+#content .wpb_text_column p:last-child,
+.vc_message_box>p:last-child,
+.wpb_alert p:last-child,
+.wpb_text_column :last-child,
+.wpb_text_column p:last-child {
+    margin-bottom: 0;
+}
+
+h3,
+.lafka-counter-h3,
+.lafka-typed-h3,
+.woocommerce p.cart-empty,
+#tab-reviews #reply-title {
+    color: #22272d;
+    font-size: 30px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.wpb_single_image {
+    overflow: hidden;
+}
+
+#main img,
+.box img,
+.product image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.wpb_single_image img {
+    vertical-align: top;
+}
+
+.wpb_single_image .vc_single_image-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+}
+
+.wpb_single_image .vc_single_image-wrapper {
+    display: block !important;
+}
+
+.wpb_single_image .vc_figure {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    max-width: 100%;
+}
+
+.wpb_single_image.vc_align_center {
+    text-align: center;
+}
+
+.menu-wrapper {
+    position: relative;
+    left: -25px;
+    box-sizing: border-box;
+    width: 1263.33px;
+    max-width: 1263px;
+    padding-left: 25px;
+    padding-right: 24.67px;
+    right: 0px;
+}
+
+// mobile CSS
+@media only screen and (max-width: 768px) {
+    .foodmenu-unit-info h4>span {
+        position: relative !important;
+        top: -25px !important;
+        right: 0;
+    }
+
+    .lafka-foodmenu-image-link {
+        margin-bottom: 8px;
+    }
+
+    .foodmenu-unit-holder a.lafka-foodmenu-image-link+.foodmenu-unit-info,
+    .foodmenu-unit-holder>img+.foodmenu-unit-info {
+        width: 100% !important;
+    }
+
+    a.lafka-foodmenu-image-link+.foodmenu-unit-info a.foodmenu-link,
+    .foodmenu-unit-holder>img+.foodmenu-unit-info a.foodmenu-link {
+        padding: 0 !important;
+    }
+
+    .lafka-none-overlay .foodmenu-unit-info h4 {
+        position: static;
+    }
+
+    .foodmenu-unit-info h4 {
+        font-size: 15px !important;
+        width: 100%;
+    }
+
+    .menu-wrapper {
+        position: relative;
+        left: -25px !important;
+        box-sizing: border-box;
+        width: 360px !important;
+        max-width: 360px;
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+        right: 0px !important;
+    }
+
+    .vc_custom_1623075783251[_ngcontent-ng-c249047663] {
+        margin-top: -106px !important;
+        margin-bottom: 10px !important;
+    }
+
+    h4,
+    .lafka-counter-h4,
+    .lafka-typed-h4 {
+        color: #22272d;
+        font-size: 18px !important;
+        font-weight: 600;
+        font-style: normal;
+        line-height: 1.4em !important;
+        text-align: center;
+    }
+
+    .lafka_title_holder.title_has_image .inner h1.heading-title {
+        font-size: 25px !important;
+    }
+
+    .lafka_title_holder.title_has_image h6 {
+        font-size: 18px !important;
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+}
+
+.vc_custom_1560664739876 {
+    margin-bottom: 0px !important;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    background-color: #22272d !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+}
+
+.vc_row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+h4,
+.lafka-counter-h4,
+.lafka-typed-h4 {
+    color: #22272d;
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.3em;
+    text-align: center;
+}
+
+.chef-section {
+    position: relative;
+    left: -25px;
+    box-sizing: border-box;
+    width: 1263.33px;
+    max-width: 1263px;
+    padding-left: 25px;
+    padding-right: 24.67px;
+    right: 0px;
+}
+
+.vc_row.lafka-visible-overlay[data-vc-full-width] {
+    overflow: visible;
+    z-index: 20;
+}
+
+.vc_row[data-vc-full-width] {
+    transition: opacity .5sease;
+    overflow: hidden;
+}
+
+.vc_custom_1623075677382 {
+    margin-bottom: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 40px !important;
+    background-color: #fccc4c !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+}
+
+.vc_custom_1623075783251 {
+    margin-top: -80px !important;
+    margin-bottom: 10px !important;
+}
+
+.vc_icon_element.vc_icon_element-outer.vc_icon_element-align-center {
+    text-align: center;
+}
+
+.vc_icon_element {
+    line-height: 0;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.vc_icon_element {
+    position: relative;
+    z-index: 2;
+}
+
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner.vc_icon_element-size-xl.vc_icon_element-have-style-inner {
+    width: 7.15em !important;
+    height: 7.15em !important;
+}
+
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner.vc_icon_element-style-rounded,
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner.vc_icon_element-style-rounded .vc_gitem-link,
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner.vc_icon_element-style-rounded .vc_icon_element-link,
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner.vc_icon_element-style-rounded-outline,
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner.vc_icon_element-style-rounded-outline .vc_gitem-link,
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner.vc_icon_element-style-rounded-outline .vc_icon_element-link {
+    border-radius: 50%;
+}
+
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner.vc_icon_element-size-xl {
+    max-width: 100% !important;
+    line-height: 5em !important;
+}
+
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner {
+    text-align: center;
+    display: inline-block;
+    border: 2px solid transparent;
+    width: 4em;
+    height: 4em;
+    box-sizing: content-box;
+    position: relative;
+}
+
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner .vc_icon_element-icon {
+    font-size: 2.15em;
+    font-style: normal;
+    line-height: 1 !important;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-feature-settings: normal;
+    font-language-override: normal;
+    font-kerning: auto;
+    font-synthesis: weight style;
+    font-variant: normal;
+    text-rendering: auto;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 75px;
+}
+
+.vc_icon_element.vc_icon_element-outer .vc_icon_element-inner .vc_icon_element-icon:before {
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    width: inherit;
+    height: inherit;
+    font-size: 1em;
+    text-align: center;
+    text-rendering: optimizelegibility;
+    border-radius: 50%;
+}
+
+.vc_custom_1622972489993 {
+    margin-bottom: 0px !important;
+}
+
+.wpb_content_element form.mc4wp-form {
+    display: block;
+}
+
+.lafka_single_field_subscribe {
+    position: relative;
+    min-height: 55px;
+    margin-bottom: 10px;
+}
+
+.wpb_content_element form.mc4wp-form .lafka_single_field_subscribe input[type=email] {
+    width: 100%;
+    height: 56px;
+    padding: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border: none;
+    -webkit-transition: all .3sease 0s;
+    transition: all .3sease 0s;
+    background: rgba(255, 255, 255, .9);
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, .8);
+}
+
+a.button-inline,
+#submit_btn,
+#submit,
+.wpcf7-submit,
+#bbpress-forums #bbp-search-form #bbp_search,
+input[type="submit"],
+form.mc4wp-form input[type=submit],
+form.mc4wp-form input[type=email] {
+    border-radius: 300px !important;
+}
+
+.select2-search--dropdown .select2-search__field,
+input[type=text],
+input[type=tel],
+#wcmp_widget_vendor_search input[type=search],
+input[type=email],
+input[type=password],
+input[type=number],
+textarea,
+form.wpcf7-form input[type=text],
+form.wpcf7-form textarea,
+form.wpcf7-form input[type=email],
+form.wpcf7-form input[type=password],
+form.wpcf7-form input[type=number],
+form.wpcf7-form input[type=tel] {
+    padding: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    -webkit-transition: all .3sease 0s;
+    transition: all .3sease 0s;
+    color: #666;
+    background-color: #f6f6f6;
+    border: none;
+    box-shadow: none;
+    border-radius: 6px;
+}
+
+.wpb_content_element form.mc4wp-form .lafka_single_field_subscribe input[type=submit] {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    z-index: 2;
+    height: 50px;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+}
+
+.lafka-banner-dark .lafka_banner_buton,
+a.button,
+.r_more_blog,
+button.wcv-button,
+input.button,
+.wcv-navigation ul.menu.horizontal li a,
+input.button,
+.woocommerce .wishlist_table td.product-add-to-cart a.button,
+button.button,
+a.button-inline,
+#submit_btn,
+#submit,
+.wpcf7-submit,
+input.otw-submit,
+form.mc4wp-form input[type=submit],
+.tribe-events-button,
+input[type="submit"] {
+    background-color: #f2002d !important;
+}
+
+a.button,
+input.button,
+button.button,
+a.button-inline,
+#submit_btn,
+#submit,
+.wpcf7-submit,
+input.otw-submit,
+form.mc4wp-form input[type=submit],
+input[type=submit],
+.tribe-events-button,
+.woocommerce .wishlist_table td.product-add-to-cart a.button {
+    cursor: pointer;
+    font-size: 13px;
+    color: #fff;
+    padding: 11px 20px;
+    text-decoration: none;
+    background: #333;
+    letter-spacing: 1px;
+    border: none;
+    -webkit-transition: all .6scubic-bezier(.77, 0, .175, 1);
+    transition: all .6scubic-bezier(.77, 0, .175, 1);
+    text-transform: uppercase;
+    font-weight: 600;
     border-radius: 4px;
-    z-index: 5;
-    color: #ffffff;
-    background-color: #4d2c21;
+    outline: none;
+}
+
+.vc_custom_1560491247741 {
+    margin-bottom: 0px !important;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+}
+
+.vc_custom_1560926306888 {
+    margin-bottom: 50px !important;
+}
+
+.vc_custom_1560922649273 {
+    margin-bottom: 35px !important;
+}
+
+.foodmenus,
+.lafka-foodmenu-shortcode-container {
+    min-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    min-height: 150px;
+}
+
+.foodmenu-unit {
+    width: 100%;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    margin: 0 0 35px;
+    padding: 0 0 35px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.foodmenu-unit-holder,
+.post-unit-holder {
+    position: relative;
+    overflow: hidden;
+}
+
+a.lafka-foodmenu-image-link,
+.foodmenu-unit-holder>img,
+.owl-carousel .owl-item .foodmenu-unit-holder>img {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    max-width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+
+#main img,
+.box img,
+.product image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.foodmenu-unit .lafka-foodmenu-image-link img,
+.foodmenu-unit-holder>img {
+    -webkit-transition: all .3sease 0s;
+    transition: all .3sease 0s;
+    border-radius: 50%;
+    opacity: 1;
+}
+
+a img {
+    border: none;
+}
+
+.foodmenu-unit-holder a.lafka-foodmenu-image-link+.foodmenu-unit-info,
+.foodmenu-unit-holder>img+.foodmenu-unit-info {
+    width: calc(100% - 111px);
+}
+
+.lafka-none-overlay .foodmenu-unit-info {
+    vertical-align: middle;
+}
+
+.foodmenu-unit-holder .foodmenu-unit-info {
+    vertical-align: middle;
+    -webkit-transition: all .3sease 0s;
+    transition: all .3sease 0s;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+a.lafka-foodmenu-image-link+.foodmenu-unit-info a.foodmenu-link,
+.foodmenu-unit-holder>img+.foodmenu-unit-info a.foodmenu-link {
+    padding: 0 0 0 20px;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1359px) {
+    .foodmenu-unit a.foodmenu-link {
+        padding: 20px;
+    }
+}
+
+.lafka-none-overlay a.foodmenu-link {
+    background: 0 0 !important;
+}
+
+.foodmenu-unit-info a,
+.foodmenu-unit-info ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+a.foodmenu-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.lafka-none-overlay .foodmenu-unit-info small,
+.lafka-none-overlay .foodmenu-unit-info h4 {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+}
+
+.foodmenu-unit-info small,
+.foodmenu-unit-info h4 {
+    text-align: left;
+    margin: 0;
+    margin-bottom: 8px;
+    -webkit-transition: all .5sease 0s;
+    transition: all .5sease 0s;
+    display: inline-block;
+}
+
+.foodmenu-unit-info h4 {
+    margin-bottom: 6px;
+    font-size: 19px !important;
+    display: block;
+    width: 100%;
+    padding-bottom: 6px;
+    font-weight: 400 !important;
+}
+
+h4,
+.lafka-counter-h4,
+.lafka-typed-h4 {
+    color: #22272d;
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.foodmenu-unit-info h4>span.lafka-item-weight-list {
+    float: none;
+    font-size: 13px;
+    color: #999;
+    background-color: rgba(0, 0, 0, 5%);
+    padding: 3px 6px;
+    border-radius: 4px;
+    vertical-align: text-bottom;
+}
+
+.foodmenu-unit-info h4:after {
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    content: " ";
+    border-bottom: 2px dotted;
+    border-color: rgba(0, 0, 0, .2);
+}
+
+.foodmenu-unit-info h4>span {
+    float: right;
+    font-size: 23px;
+}
+
+.foodmenu-unit-info .woocommerce-Price-currencySymbol {
+    top: -1px;
+    vertical-align: text-bottom;
+}
+
+.woocommerce-Price-currencySymbol {
+    font-size: 80%;
+    position: relative;
+}
+
+.foodmenu-unit-info h4>span sup {
+    font-size: 75%;
+    bottom: .45ex;
+    font-weight: inherit;
+}
+
+sup,
+sub {
+    font-size: 75%;
+    height: 0;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    font-weight: inherit;
+}
+
+.foodmenu-unit-info h6 {
+    width: auto !important;
+    margin: 0 0 8px !important;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    color: #999;
+    vertical-align: middle;
+}
+
+.foodmenu-unit-info ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.foodmenu-unit-info ul li {
+    list-style: none;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 0 2px 2px 0;
+    border-radius: 400px;
+    background-color: rgba(0, 0, 0, 3%);
+}
+
+.lafka-foodmenu-option {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 12px;
+    margin-right: 4px;
+    color: #999;
+}
+
+.lafka-foodmenu-price {
+    color: #333;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.foodmenu-unit-info .woocommerce-Price-currencySymbol {
+    top: -1px;
+    vertical-align: text-bottom;
+}
+
+.woocommerce-Price-currencySymbol {
+    font-size: 80%;
+    position: relative;
+}
+
+.foodmenu-unit-info ul li .woocommerce-Price-amount sup {
+    font-size: 100%;
+    bottom: auto;
 }

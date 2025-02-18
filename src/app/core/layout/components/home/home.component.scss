@@ -47,10 +47,7 @@
         padding-left: 10% !important;
 
         >.text-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
+            padding: 134px 0;
         }
 
     }
@@ -68,7 +65,6 @@
         border-radius: 2em;
     }
 
-
     @media only screen and (max-width: 768px) {
         .wpb_wrapper {
             h3 {
@@ -81,7 +77,12 @@
                 margin-bottom: 18px !important;
             }
         }
+
+        .slide-content {
+            >.text-wrapper {
+                padding: 40px 0 !important;
+            }
+
+        }
     }
-
-
 }
