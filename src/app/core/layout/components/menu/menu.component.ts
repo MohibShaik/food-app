@@ -55,15 +55,17 @@ export class MenuComponent implements OnInit {
     );
   }
 
-  private filterMenu(activeTabIndex: number) {
-    const activeCategory = this.menuCategories.filter(
-      (item, index) => index === activeTabIndex
-    );
-    if (activeCategory) {
-      const filtered = this.foodMenu.filter(
-        (x) => x?.menuCategoryId?._id === activeCategory[0]?._id
+  private filterMenu(activeTabIndex: number, menuCatName?: string) {
+    if (this.menuCategories?.length) {
+      const activeCategory = this.menuCategories?.filter(
+        (item, index) => index === activeTabIndex
       );
-      this.filteredFoodMenuSubject.next(filtered); // Emit filtered menu
+      if (activeCategory) {
+        const filtered = this.foodMenu.filter(
+          (x) => x?.menuCategoryId?._id === activeCategory[0]?._id
+        );
+        this.filteredFoodMenuSubject.next(filtered); // Emit filtered menu
+      }
     }
   }
 

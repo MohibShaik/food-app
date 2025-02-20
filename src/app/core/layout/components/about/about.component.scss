@@ -454,8 +454,8 @@ h3,
         position: relative;
         left: -25px !important;
         box-sizing: border-box;
-        width: 360px !important;
-        max-width: 360px;
+        width: 100vw !important;
+        // max-width: 360px;
         padding-left: 25px !important;
         padding-right: 25px !important;
         right: 0px !important;
@@ -492,8 +492,8 @@ h4,
     position: relative;
     left: -25px;
     box-sizing: border-box;
-    width: 1263.33px;
-    max-width: 1263px;
+    width: 100vw !important;
+    // max-width: 1263px;
     padding-left: 25px;
     padding-right: 24.67px;
     right: 0px;

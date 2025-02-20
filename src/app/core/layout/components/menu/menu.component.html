@@ -12,195 +12,61 @@
     <div class="inner fixed" style="padding-top: 372px; padding-bottom: 152px">
       <div class="lafka-title-text-container">
         <h1 class="heading-title text-center">Our Menu</h1>
-        <!-- END OF TITLE -->
       </div>
     </div>
   </div>
 
-  <div class="inner">
-    <!-- CONTENT WRAPPER -->
-    <div id="main" class="fixed box box-common">
-      <div class="content_holder">
-        <div id="post-15" class="post-15 page type-page status-publish hentry">
-          <div class="wpb-content-wrapper">
-            <ng-container
-              *ngFor="
-                let category of query.menuCategories$ | async;
-                let i = index
-              "
-            >
-              <div
-                data-vc-full-width="true"
-                data-vc-full-width-init="true"
-                class="vc_row wpb_row vc_row-fluid vc_custom_1560491247741 vc_row-has-fill menu-wrapper"
-              >
-                <div class="wpb_column vc_column_container vc_col-sm-12">
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1560491315114 vc_column-gap-30 vc_row-o-content-middle vc_row-flex"
-                      >
-                        <div
-                          class="wpb_column vc_column_container col-md-3 col-lg-3 col-sm-0 vc_col-has-fill"
-                        >
-                          <div class="vc_column-inner vc_custom_1554970617417">
-                            <div class="wpb_wrapper"></div>
-                          </div>
-                        </div>
-                        <div
-                          class="wpb_column vc_column_container col-md-6 col-lg-6 col-sm-12"
-                        >
-                          <div class="vc_column-inner">
-                            <div class="wpb_wrapper">
-                              <h3
-                                style="
-                                  text-align: left;
-                                  text-transform: uppercase;
-                                "
-                                class="vc_custom_heading vc_do_custom_heading vc_custom_1560926306888"
-                              >
-                                {{ category?.name }}
-                              </h3>
+  <div class="menu-container" *ngIf="menuCategories?.length">
+    <ng-container
+      *ngFor="let category of query.menuCategories$ | async; let i = index"
+    >
+      <h4 class="category_name">{{ category?.name }}</h4>
 
-                              <div
-                                id="latest_projects67b2da77b348d"
-                                class="lafka-foodmenu-shortcode vc_custom_1560922649273 lafka-foodmenu-dark"
-                              >
-                                <div class="lafka-foodmenu-shortcode-container">
-                                  <!-- have a for loop here  -->
-                                  <ng-container *ngIf="selectTab(i)">
-                                    <ng-container
-                                      *ngFor="
-                                        let item of filteredFoodMenu$ | async;
-                                        let j = index
-                                      "
-                                    >
-                                      <div
-                                        class="foodmenu-unit lafka-none-overlay burgers"
-                                      >
-                                        <div class="foodmenu-unit-holder">
-                                          <a
-                                            title="View more"
-                                            class="lafka-foodmenu-image-link"
-                                          >
-                                            <img
-                                              decoding="async"
-                                              width="100"
-                                              height="100"
-                                              [src]="item?.images"
-                                              class="attachment-lafka-general-small-size-nocrop size-lafka-general-small-size-nocrop wp-post-image"
-                                              alt=""
-                                              sizes="(max-width: 100px) 100vw, 100px"
-                                            />
-                                          </a>
-                                          <div class="foodmenu-unit-info">
-                                            <a
-                                              title="View more"
-                                              href="https://lafka.althemist.com/fastfood/restaurant-menu/western-bacon-angus-burger/"
-                                              class="foodmenu-link"
-                                              ><h4>
-                                                {{ item?.name }}
-                                                <!-- <span
-                                                  class="lafka-item-weight-list"
-                                                  >310 g</span
-                                                > -->
-                                                <span
-                                                  ><span
-                                                    class="woocommerce-Price-amount amount"
-                                                    [innerHTML]="
-                                                      formatPrice(item.price)
-                                                        | safeHtml
-                                                          : 'USD'
-                                                          : 'symbol'
-                                                          : '1.2-2'
-                                                    "
-                                                  ></span>
-                                                </span>
-                                              </h4>
-                                              <h6>
-                                                {{ item.description }}
-                                              </h6>
-                                              <!-- <ul>
-                                                <li>
-                                                  <span
-                                                    class="lafka-foodmenu-option"
-                                                    >Extra Patty</span
-                                                  >
-                                                  <span
-                                                    class="lafka-foodmenu-price"
-                                                    >+<span
-                                                      class="woocommerce-Price-amount amount"
-                                                      ><span
-                                                        class="woocommerce-Price-currencySymbol"
-                                                        >$</span
-                                                      >3<sup>.00</sup></span
-                                                    ></span
-                                                  >
-                                                </li>
-                                                <li>
-                                                  <span
-                                                    class="lafka-foodmenu-option"
-                                                    >Extra Cheese</span
-                                                  >
-                                                  <span
-                                                    class="lafka-foodmenu-price"
-                                                    >+<span
-                                                      class="woocommerce-Price-amount amount"
-                                                      ><span
-                                                        class="woocommerce-Price-currencySymbol"
-                                                        >$</span
-                                                      >1<sup>.00</sup></span
-                                                    ></span
-                                                  >
-                                                </li>
-                                              </ul> -->
-                                            </a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </ng-container>
-                                  </ng-container>
-                                </div>
-                                <div class="clear"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="wpb_column vc_column_container col-md-3 col-lg-3 col-sm-0"
-                        >
-                          <div class="vc_column-inner">
-                            <div class="wpb_wrapper"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      <ng-container *ngIf="selectTab(i)">
+        <ng-container
+          *ngFor="let item of filteredFoodMenu$ | async; let j = index"
+        >
+          <div class="menu-item-card-view">
+            <div class="card-header-view" fxLayout="row" fxLayoutAlign="space-between center">
+              <div class="menu-image-div">
+                <a title="View more" class="lafka-foodmenu-image-link">
+                  <img
+                    decoding="async"
+                    width="100"
+                    height="100"
+                    [src]="item?.images"
+                    class="attachment-lafka-general-small-size-nocrop size-lafka-general-small-size-nocrop wp-post-image"
+                    alt=""
+                    sizes="(max-width: 100px) 100vw, 100px"
+                  />
+                </a>
               </div>
-              <div class="vc_row-full-width vc_clearfix"></div>
-            </ng-container>
+
+              <div class="menu_price_section">
+                <span
+                  ><span
+                    class="woocommerce-Price-amount amount"
+                    [innerHTML]="
+                      formatPrice(item.price)
+                        | safeHtml : 'USD' : 'symbol' : '1.2-2'
+                    "
+                  ></span>
+                </span>
+              </div>
+            </div>
+
+            <div class="card-body-view">
+              <div class="menu-name-section">
+                <p class="menu_item_name">{{item?.name}}</p>
+              </div>
+              <hr>
+              <div class="menu-desc-section">
+                <p class="menu_item_desc">{{item?.description}}</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="clear"></div>
-        <div
-          id="comments"
-          style="
-            display: none;
-            position: relative;
-            box-sizing: border-box;
-            width: 1263.33px;
-            padding-left: 25px;
-            padding-right: 25px;
-            left: -25px;
-          "
-        ></div>
-        <!-- #comments -->
-      </div>
-      <!-- SIDEBARS -->
-      <!-- END OF SIDEBARS -->
-      <div class="clear"></div>
-    </div>
-    <!-- Previous / Next links -->
+        </ng-container>
+      </ng-container>
+    </ng-container>
   </div>
 </div>
