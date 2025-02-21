@@ -991,3 +991,24 @@ sub {
         font-weight: 500;
     }
 }
+
+/* Laptop Styles */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .menu-container {
+        padding: 10% 30% !important;
+    }
+}
+
+/* iPad or Tablet Styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .menu-container {
+        padding: 10% 30% !important;
+    }
+}
+
+/* Larger Screen Styles */
+@media (min-width: 1440px) {
+    .menu-container {
+        padding: 10% 30% !important;
+    }
+}
