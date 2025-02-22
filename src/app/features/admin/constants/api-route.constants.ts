@@ -24,9 +24,9 @@ export const endPoint = {
   updateOrderStatus: `${environment?.apiUrl}/${api}/order/updateOrderStatus`,
   getOrderByUserId: (userId: string) =>
     `${environment?.apiUrl}/${api}/orders?userId=${userId}`,
-  getAllOrders: (pageIndex: number, pageSize: number) => `${environment?.apiUrl}/${api}/orders?pageIndex=${pageIndex}&pageSize=${pageSize}`,
+  getAllOrders: (pageIndex: number, pageSize: number) =>
+    `${environment?.apiUrl}/${api}/orders?pageIndex=${pageIndex}&pageSize=${pageSize}`,
 
-  // getUserInfoById: (userId: string) => `${api}/users/${userId}`,
-  // registerVendor: `${api}/vendor/new`,
-  // verifyOTP: `${api}/auth/verify-otp`,
+  // contact API
+  sendMessage: `${environment?.apiUrl}/${api}/sendQuery`,
 };

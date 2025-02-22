@@ -9,18 +9,6 @@
         >
           <ul id="lafka-top-right-menu" class="lafka-top-menu">
             <li
-              id="menu-item-207"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-207"
-            >
-              <a
-                routerLink="link.route"
-                [routerLinkActive]="['is-active']"
-                [routerLinkActiveOptions]="{ exact: false }"
-                #rla="routerLinkActive"
-                >Order Online</a
-              >
-            </li>
-            <li
               id="menu-item-214"
               class="menu-item menu-item-type-post_type menu-item-object-page menu-item-214"
             >
@@ -45,6 +33,21 @@
                 >Contact</a
               >
             </li>
+
+            <li
+              id="menu-item-207"
+              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-207 order-online-tab"
+            >
+              <a
+                routerLink="link.route"
+                [routerLinkActive]="['is-active']"
+                [routerLinkActiveOptions]="{ exact: false }"
+                #rla="routerLinkActive"
+                >Order Online</a
+              >
+
+              <span>Coming Soon...</span>
+            </li>
           </ul>
         </div>
 
@@ -58,11 +61,7 @@
         </div> -->
 
         <div id="logo">
-          <a
-            href="/"
-            title="Lafka"
-            rel="home"
-          >
+          <a href="/" title="Lafka" rel="home">
             <img
               width="220"
               height="220"
@@ -200,6 +199,7 @@
                   #rla="routerLinkActive"
                   >Order Online</a
                 >
+                <!-- <span>( Coming soon... )</span> -->
               </li>
 
               <li class="nav-item" (click)="toggleNavbar()">
@@ -260,9 +260,7 @@
             id="menu-item-2014"
             class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-2014 lafka-link-has-icon dropdown has-mega"
           >
-            <a
-              href="/menu"
-            >
+            <a href="/menu">
               <img src="../../../../../assets/images/menu/salad.svg" alt="" />
               Salads
             </a>
@@ -271,9 +269,7 @@
             id="menu-item-3978"
             class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-3978 lafka-link-has-icon dropdown has-mega"
           >
-            <a
-              href="/menu"
-            >
+            <a href="/menu">
               <img src="../../../../../assets/images/menu/biryani.svg" alt="" />
               Biryani
             </a>
@@ -282,9 +278,7 @@
             id="menu-item-2015"
             class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-2015 lafka-link-has-icon dropdown"
           >
-            <a
-              href="/menu"
-            >
+            <a href="/menu">
               <img
                 src="../../../../../assets/images/menu/sandwiches.svg"
                 alt=""
@@ -322,9 +316,7 @@
             id="menu-item-2016"
             class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2016 lafka-link-has-icon"
           >
-            <a
-              href="/menu"
-            >
+            <a href="/menu">
               <img
                 src="../../../../../assets/images/menu/french-fries.svg"
                 alt=""
@@ -337,9 +329,7 @@
             id="menu-item-2017"
             class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2017 lafka-link-has-icon"
           >
-            <a
-              href="/menu"
-            >
+            <a href="/menu">
               <img src="../../../../../assets/images/menu/drinks.svg" alt="" />
               Drinks</a
             >
@@ -348,9 +338,7 @@
             id="menu-item-2018"
             class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2018 lafka-link-has-icon"
           >
-            <a
-              href="/menu"
-            >
+            <a href="/menu">
               <img
                 src="../../../../../assets/images/menu/ice-cream.svg"
                 alt=""

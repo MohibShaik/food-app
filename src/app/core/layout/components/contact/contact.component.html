@@ -17,7 +17,7 @@
             </h5>
             <p>
               <i class="fa fa-envelope-open text-primary me-2"></i
-              >test&#64;gmail.com
+              >contact&#64;shaarahalaleats.com
             </p>
           </div>
           <div class="col-md-4">
@@ -28,7 +28,7 @@
             </h5>
             <p>
               <i class="fa fa-envelope-open text-primary me-2"></i>
-              test&#64;gmail.com
+              info&#64;shaarahalaleats.com
             </p>
           </div>
           <div class="col-md-4">
@@ -39,7 +39,7 @@
             </h5>
             <p>
               <i class="fa fa-envelope-open text-primary me-2"></i>
-              test&#64;gmail.com
+              support&#64;shaarahalaleats.com
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@
       </div>
       <div class="col-md-6">
         <div class="wow fadeInUp" data-wow-delay="0.2s">
-          <form>
+          <form [formGroup]="contactForm" (ngSubmit)="sendMessage()">
             <div class="row g-3">
               <div class="col-md-6">
                 <div class="form-floating">
@@ -66,10 +66,21 @@
                     class="form-control"
                     id="name"
                     placeholder="Your Name"
+                    formControlName="name"
                   />
                   <label for="name">Your Name</label>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      contactForm.get('name')?.touched &&
+                      contactForm.get('name')?.invalid
+                    "
+                  >
+                    Name is required.
+                  </div>
                 </div>
               </div>
+
               <div class="col-md-6">
                 <div class="form-floating">
                   <input
@@ -77,10 +88,26 @@
                     class="form-control"
                     id="email"
                     placeholder="Your Email"
+                    formControlName="from"
                   />
                   <label for="email">Your Email</label>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      contactForm.get('from')?.touched &&
+                      contactForm.get('from')?.invalid
+                    "
+                  >
+                    <span *ngIf="contactForm.get('from')?.errors?.['required']"
+                      >Email is required.</span
+                    >
+                    <span *ngIf="contactForm.get('from')?.errors?.['email']"
+                      >Please enter a valid email address.</span
+                    >
+                  </div>
                 </div>
               </div>
+
               <div class="col-12">
                 <div class="form-floating">
                   <input
@@ -88,10 +115,21 @@
                     class="form-control"
                     id="subject"
                     placeholder="Subject"
+                    formControlName="subject"
                   />
                   <label for="subject">Subject</label>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      contactForm.get('subject')?.touched &&
+                      contactForm.get('subject')?.invalid
+                    "
+                  >
+                    Subject is required.
+                  </div>
                 </div>
               </div>
+
               <div class="col-12">
                 <div class="form-floating">
                   <textarea
@@ -99,10 +137,21 @@
                     placeholder="Leave a message here"
                     id="message"
                     style="height: 150px"
+                    formControlName="message"
                   ></textarea>
                   <label for="message">Message</label>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      contactForm.get('message')?.touched &&
+                      contactForm.get('message')?.invalid
+                    "
+                  >
+                    Message is required.
+                  </div>
                 </div>
               </div>
+
               <div class="col-12">
                 <button class="btn btn-primary w-100 py-3" type="submit">
                   Send Message

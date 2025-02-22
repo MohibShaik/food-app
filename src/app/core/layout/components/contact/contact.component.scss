@@ -1,0 +1,22 @@
+/* Laptop Styles */
+@media (min-width: 1024px) and (max-width: 1440px) {}
+
+/* iPad or Tablet Styles */
+@media (min-width: 768px) and (max-width: 1024px) {}
+
+/* Larger Screen Styles */
+@media (min-width: 1440px) {}
+
+/* mobile screen */
+@media only screen and (max-width: 768px) {
+
+    .pt-15 {
+        padding-top: 12rem !important;
+        padding-bottom: 10rem;
+    }
+}
+
+.pt-15 {
+    padding-top: 20rem;
+    padding-bottom: 10rem;
+}
