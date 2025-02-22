@@ -27,7 +27,7 @@ export class HomeComponent {
 
   ngAfterViewInit() {
     this.carouselRef = new Carousel(this.carouselElement.nativeElement, {
-      interval: 4000,
+      interval: 2000,
     });
 
     this.startSlide()
